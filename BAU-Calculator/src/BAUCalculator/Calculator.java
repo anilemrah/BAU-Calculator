@@ -1,9 +1,5 @@
 package BAUCalculator;
 
-import static java.lang.Math.log10;
-import static java.lang.Math.pow;
-
-
 public class Calculator {
 	
 	//Singleton Calculator Object Is Here!
@@ -13,6 +9,7 @@ public class Calculator {
 		return instance;
 	}
 	
+	//Basic Calculation Objects
 	public Calculation normalState;
 	public Calculation addState;
 	public Calculation minusState;
@@ -20,8 +17,21 @@ public class Calculator {
 	public Calculation multiplyState;
 	public Calculation powerOfState;
 	
-
+	//Advanced Calculation Objects
+	public Calculation squareState;
+	public Calculation squareRootState;
+	public Calculation oneDividedByState;
+	public Calculation cosinusState;
+	public Calculation sinusState;
+	public Calculation tangentState;
+	public Calculation logState;
+	public Calculation rateState;
+	
 	public Calculation state1;
+	
+	int count = 0;
+	
+    private Double num1, num2;
 	
     public Calculation getState() {
 		return state1;
@@ -31,30 +41,30 @@ public class Calculator {
 		this.state1 = state1;
 	}
 
-	int count = 0;
-
+	//TO:DO Lazy singleton import is required here
     public Calculator() {
+    	//Fill the Basic Calculation Objects
     	normalState = new Normal();
     	addState = new Add();
     	minusState = new Minus();
     	divideState = new Divide();
     	multiplyState = new Multiply();
     	powerOfState = new PowerOf();
+    	
+    	//Fill the Advanced Calculation Objects
+    	squareState = new Square();
+    	squareRootState = new SquareRoot();
+    	oneDividedByState = new OneDividedBy();
+    	cosinusState = new Cosinus();
+    	sinusState = new Sinus();
+    	tangentState = new Tangent();
+    	logState = new Log();
+    	rateState = new Rate();
 
     	setState1(normalState);
     }
-
-    public enum AdvancedCalculations {
-        SQUARE, SQUAREROOT, ONEDIVIDEDBY, COS, SIN, TAN ,LOG, RATE
-    }
-
-    private Double num1, num2;
-
-    private Double calculateBasicCalc() {	
-    	return state1.makeCalculation(num1, num2);
-    }
-
-    public Double calculateBi(Calculation newState1, Double num) {
+    
+    public Double calculate(Calculation newState1, Double num) {
         if (getState() == normalState) {
             num2 = 0.0;
             num1 = num;
@@ -67,9 +77,37 @@ public class Calculator {
             return num1;
         }
     }
+    /**
+     * This method calculates the basic calculations
+     * @return result
+     */
+    private Double calculateBasicCalc() {	
+    	// We can use null object pattern for this
+    	if (state1 != null) {
+    		return state1.makeCalculation(num1, num2);
+    	}
+    	//Error case
+    	return (double) 0;
+    }
+    
+    /**
+     * This method calculates the advanced calculations
+     * calls the makeCalculation with second input equals zero
+     * because this calculations doesn't need second input
+     * Can be change with another pattern, because it is different
+     * @return result
+     */
+    public Double calculateAdvancedCalc(Calculation newState1, Double num) {
+    	// We can use null object pattern for this
+    	if (newState1 != null) {
+    		return newState1.makeCalculation(num, 0);
+    	}
+    	//Error case
+    	return (double) 0;
+    }
 
     public Double calculateEqual(Double num) {
-        return calculateBi(normalState, num);
+        return calculate(normalState, num);
     }
 
     public Double reset() {
@@ -79,37 +117,4 @@ public class Calculator {
 
         return Double.NaN;
     }
-
-    public Double calculateMono(AdvancedCalculations newMode, Double num) {
-        if (newMode == AdvancedCalculations.SQUARE) {
-            return num * num;
-        }
-        if (newMode == AdvancedCalculations.SQUAREROOT) {
-            return Math.sqrt(num);
-        }
-        if (newMode == AdvancedCalculations.ONEDIVIDEDBY) {
-            return 1 / num;
-        }
-        if (newMode == AdvancedCalculations.COS) {
-            return Math.cos(num);
-        }
-        if (newMode == AdvancedCalculations.SIN) {
-            return Math.sin(num);
-        }
-        if (newMode == AdvancedCalculations.TAN) {
-            return Math.tan(num);
-        }
-        if (newMode == AdvancedCalculations.LOG) {
-            return log10(num);
-        }
-        if (newMode == AdvancedCalculations.RATE) {
-           return num / 100;
-        }
-        
-
-
-        // never reach
-        throw new Error();
-    }
-
 }

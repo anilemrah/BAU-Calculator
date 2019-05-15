@@ -170,52 +170,52 @@ public class UI implements ActionListener {
 		}
 
 		if (source == buttonAdd) {
-			writer(calc.calculateBi(Calculator.getInstance().addState, reader()));
+			writer(calc.calculate(Calculator.getInstance().addState, reader()));
 		}
 
 		if (source == buttonMinus) {
-			writer(calc.calculateBi(Calculator.getInstance().minusState, reader()));
+			writer(calc.calculate(Calculator.getInstance().minusState, reader()));
 		}
 
 		if (source == buttonMultiply) {
-			writer(calc.calculateBi(Calculator.getInstance().multiplyState, reader()));
+			writer(calc.calculate(Calculator.getInstance().multiplyState, reader()));
 		}
 
 		if (source == buttonDivide) {
-			writer(calc.calculateBi(Calculator.getInstance().divideState, reader()));
+			writer(calc.calculate(Calculator.getInstance().divideState, reader()));
 		}
 		if (source == buttonxpowerofy) {
-			writer(calc.calculateBi(Calculator.getInstance().powerOfState, reader()));
+			writer(calc.calculate(Calculator.getInstance().powerOfState, reader()));
 		}
 
 		if (source == buttonSquare) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.SQUARE, reader()));
+			writer(calc.calculate(Calculator.getInstance().squareState, reader()));
 		}
 
 		if (source == buttonSquareRoot) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.SQUAREROOT, reader()));
+			writer(calc.calculateAdvancedCalc(Calculator.getInstance().squareRootState, reader()));
 		}
 
 		if (source == buttonOneDevidedBy) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.ONEDIVIDEDBY, reader()));
+			writer(calc.calculateAdvancedCalc(Calculator.getInstance().oneDividedByState, reader()));
 		}
 
 		if (source == buttonCos) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.COS, reader()));
+			writer(calc.calculateAdvancedCalc(Calculator.getInstance().cosinusState, reader()));
 		}
 
 		if (source == buttonSin) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.SIN, reader()));
+			writer(calc.calculateAdvancedCalc(Calculator.getInstance().sinusState, reader()));
 		}
 
 		if (source == buttonTan) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.TAN, reader()));
+			writer(calc.calculateAdvancedCalc(Calculator.getInstance().tangentState, reader()));
 		}
 		if (source == buttonlog) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.LOG, reader()));
+			writer(calc.calculateAdvancedCalc(Calculator.getInstance().logState, reader()));
 		}
 		if (source == buttonrate) {
-			writer(calc.calculateMono(Calculator.AdvancedCalculations.RATE, reader()));
+			writer(calc.calculateAdvancedCalc(Calculator.getInstance().rateState, reader()));
 		}
 
 		if (source == buttonEqual) {
