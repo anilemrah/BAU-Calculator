@@ -25,7 +25,7 @@ public class UI implements ActionListener {
 
 	private final JButton but[], buttonAdd, buttonMinus, buttonMultiply, buttonDivide, buttonEqual, buttonCancel,
 			buttonSquareRoot, buttonSquare, buttonOneDevidedBy, buttonCos, buttonSin, buttonTan, buttonxpowerofy,
-			buttonlog, buttonrate, buttonShift, convertButton;
+			buttonlog, buttonrate, buttonShift, convertButton, buttonFr;
 	private final JComboBox combobox1;
 	private final JComboBox combobox2;
 	private final JComboBox combobox3;
@@ -67,6 +67,7 @@ public class UI implements ActionListener {
 		buttonrate = new JButton("x%");
 		buttonShift = new JButton("SHIFT");
 		convertButton = new JButton("Convert");
+		buttonFr = new JButton("FR");
 
 		combobox1 = new JComboBox();
 		combobox2 = new JComboBox();
@@ -113,6 +114,7 @@ public class UI implements ActionListener {
 		panel.add(buttonShift);
 		panel.add(buttonEqual);
 		panel.add(buttonCancel);
+		panel.add(buttonFr);
 
 		panel2.add(label1);
 		panel2.add(combobox1);
@@ -140,6 +142,7 @@ public class UI implements ActionListener {
 		buttonShift.addActionListener(this);
 		buttonEqual.addActionListener(this);
 		buttonCancel.addActionListener(this);
+		buttonFr.addActionListener(this);
 
 		combobox1.addActionListener(this);
 		combobox2.addActionListener(this);
@@ -229,6 +232,12 @@ public class UI implements ActionListener {
 			frame.add(panel2);
 
 		}
+		if(source == buttonFr) {
+			double data = Double.parseDouble(text.getText());
+			
+		}
+	
+		
 		if (source == convertButton) {
 
 			String type = combobox1.getSelectedItem().toString();

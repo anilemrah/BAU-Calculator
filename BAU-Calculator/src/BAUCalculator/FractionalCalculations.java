@@ -45,13 +45,6 @@ public class FractionalCalculations extends Fraction {
 	    return new Fraction(numer,denom); 
 	}
 	
-	public float FracToDec(Fraction fr) {
-		
-		int num = fr.getNumerator();
-		int denom = fr.getDenominator();
-		float dec = (float)(num/denom);
-		
-		return dec;
-	}
+
 	
 }

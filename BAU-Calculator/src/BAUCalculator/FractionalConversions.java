@@ -7,4 +7,13 @@ public class FractionalConversions extends Fraction {
 		super(num, denom);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public float FracToDec(Fraction fr) {
+		
+		int num = fr.getNumerator();
+		int denom = fr.getDenominator();
+		float dec = (float)(num/denom);
+		
+		return dec;
+	}
 }
